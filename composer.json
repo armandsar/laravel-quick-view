@@ -1,0 +1,34 @@
+{
+  "name": "armandsar/laravel-quick-view",
+  "description": "Quickly render view from controller without typing file names",
+  "keywords": [
+    "laravel",
+    "view"
+  ],
+  "homepage": "https://github.com/armandsar/laravel-quick-view",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Armands Leinieks",
+      "email": "armands.leinieks@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "laravel/framework": "~5.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~6.0",
+    "orchestra/testbench": "~3.0",
+    "mockery/mockery": "0.9.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Armandsar\\QuickView\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "minimum-stability": "dev"
+}
