@@ -10,7 +10,7 @@ if ( ! function_exists('quick')) {
         $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2)[1];
 
         $class = $trace['class'];
-        $method = $trace['function'];
+        $method = snake_case($trace['function']);
 
         $class = str_replace("App\\Http\\Controllers\\", '', $class);
         $class = preg_replace('/Controller$/', '', $class);

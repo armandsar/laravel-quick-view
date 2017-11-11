@@ -16,14 +16,14 @@ namespace Armandsar\QuickView\Tests {
             app()->instance(ViewFactory::class, $viewFactory);
 
             $viewFactory->shouldReceive('make')
-                ->with('admin.special_posts.index', ['a' => 1], ['b' => 2])
+                ->with('admin.special_posts.special_index', ['a' => 1], ['b' => 2])
                 ->once();
 
             $viewFactory->shouldReceive('make')
                 ->with('posts.create', [], [])
                 ->once();
 
-            (new SpecialPostsController)->index();
+            (new SpecialPostsController)->specialIndex();
             (new PostsController())->create();
         }
 
@@ -46,7 +46,7 @@ namespace App\Http\Controllers\Admin {
 
     class SpecialPostsController
     {
-        public function index()
+        public function specialIndex()
         {
             return quick(['a' => 1], ['b' => 2]);
         }
