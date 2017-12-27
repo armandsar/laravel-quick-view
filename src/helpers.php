@@ -3,7 +3,7 @@
 use Illuminate\Contracts\View\Factory as ViewFactory;
 
 
-if ( ! function_exists('quick')) {
+if (!function_exists('quick')) {
 
     function quick($data = [], $mergeData = [])
     {

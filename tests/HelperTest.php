@@ -2,12 +2,12 @@
 
 namespace Armandsar\QuickView\Tests {
 
-    use App\Http\Controllers\PostsController;
     use App\Http\Controllers\Admin\SpecialPostsController;
+    use App\Http\Controllers\PostsController;
     use Illuminate\Contracts\View\Factory as ViewFactory;
     use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
-    class TestCase extends OrchestraTestCase
+    class HelperTest extends OrchestraTestCase
     {
         public function testHelperFunction()
         {

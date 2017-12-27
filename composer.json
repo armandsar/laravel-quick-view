@@ -30,5 +30,10 @@
       "src/helpers.php"
     ]
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Armandsar\\QuickView\\Tests\\": "tests/"
+    }
+  },
   "minimum-stability": "dev"
 }
