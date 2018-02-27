@@ -19,13 +19,36 @@ $ composer require armandsar/laravel-quick-view
 
 Namespace and controller name as folders and method name as file name.
 
-Given that we have a Admin/UsersController@show
+Given that we have a Admin/UsersController
 
 ``` php
-return quick(['user' => User::first()])
+public function create()
+{
+    return quick();
+}
 ```
 
-would assume a view at admin/users/show.blade.php
+would assume a view at **admin/users/create.blade.php**
+
+
+Or if you prefer not to use a helper, there is also a trait:
+
+
+``` php
+class UsersController
+{
+    use Armandsar\QuickView\Quick;
+    
+    public function show($id)
+    {
+        $user = User::findOrFail($id)
+        return $this-quick(['user' => $user]);
+    }
+}    
+
+```
+
+would assume a view at **admin/users/show.blade.php**
 
 ## Testing
 

@@ -2,12 +2,12 @@
 
 namespace Armandsar\QuickView\Tests {
 
-    use App\Http\Controllers\Admin\SpecialHelpersController;
-    use App\Http\Controllers\HelpersController;
+    use App\Http\Controllers\Admin\SpecialTraitsController;
+    use App\Http\Controllers\TraitsController;
     use Illuminate\Contracts\View\Factory as ViewFactory;
     use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
-    class HelperTest extends OrchestraTestCase
+    class TraitTest extends OrchestraTestCase
     {
         public function testHelperFunction()
         {
@@ -16,15 +16,15 @@ namespace Armandsar\QuickView\Tests {
             app()->instance(ViewFactory::class, $viewFactory);
 
             $viewFactory->shouldReceive('make')
-                ->with('admin.special_helpers.special_index', ['a' => 1], ['b' => 2])
+                ->with('admin.special_traits.special_index', ['a' => 1], ['b' => 2])
                 ->once();
 
             $viewFactory->shouldReceive('make')
-                ->with('helpers.create', [], [])
+                ->with('traits.create', [], [])
                 ->once();
 
-            (new SpecialHelpersController)->specialIndex();
-            (new HelpersController())->create();
+            (new SpecialTraitsController())->specialIndex();
+            (new TraitsController())->create();
         }
 
     }
@@ -33,18 +33,22 @@ namespace Armandsar\QuickView\Tests {
 
 namespace App\Http\Controllers {
 
-    class HelpersController
+    use Armandsar\QuickView\Quick;
+
+    class TraitsController
     {
+        use Quick;
+
         public function create()
         {
-            return quick();
+            return $this->quick();
         }
     }
 }
 
 namespace App\Http\Controllers\Admin {
 
-    class SpecialHelpersController
+    class SpecialTraitsController
     {
         public function specialIndex()
         {
