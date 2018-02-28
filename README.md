@@ -42,7 +42,7 @@ class UsersController
     public function show($id)
     {
         $user = User::findOrFail($id)
-        return $this-quick(['user' => $user]);
+        return $this->quick(['user' => $user]);
     }
 }    
 
